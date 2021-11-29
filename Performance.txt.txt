@@ -1,0 +1,33 @@
+Pocetni FPS = 36
+
+- FPS ne pada zbog dinamickih svetala 
+- Testirano je sa 40 oruzja u isto vreme i pad fps-a je 5 kada se renderuju
+- Testirano je sa 40 oruzja u isto vreme i pad fps-a je 5 kada se ne renderuju ni eksplozija ni metak. Kreiranje PhysicHanlde-a
+- Usporavanje nije ni do CCD-a koji se kaci na PhysicHandle
+- kada se bolt ne vidi i nema eksploziju i PhysicHandle ne postoji onda je pad od 2fps-a za 40 komanda
+- kada se bolt ne vidi i nema eksploziju i PhysicHandle ne postoji i nema zvuka onda je pad od 0fps-a za 40 komanda. Kada se prvi put puca onda zbog zvuka padne 5 fps 
+- kada se renderuje i kada ima fiziku ali nema zvuka pad je 3fps-a FPS = 33;
+- kada prikazuje text gore ode 2 fps-a FPS = 34
+
+
+- 10 fps-a ode kada ima 7 botova, koji se ne renderuju i ne mrdaju. Mozda je text koji se ispisuje preko FPS = 23;
+- kada rakete nemaju zvuk i svih 7 botova pucaju non-stop imamo pad od 5-6fps FPS = 18
+- kada rakete nemaju zvuk i svih 7 botova pucaju non-stop i nemaju PS imamo pad od 2-3fps FPS = 22
+- kada raekete imaju zvuk i full prikaz bez eksplozije imamo 6 fps manje FPS = 16
+- kada raekete imaju zvuk i full prikaz sa eksplozijom imamo 16 fps manje FPS = 6
+- renderovanje eksplozije nista ne smanjuje FPS. Isto je kada se vidi i ne vidi
+- eksplozija se ne renderuje, nema AffectVictim pad je 15fps-a FPS = 7
+- eksplozija se ne renderuje, nema AffectVictim i nema zvuka - pad je 15fps FPS=7
+- eksplozija se ne renderuje, nema AffectVictim i nema zvuka, nema delica - FPS = 16, RefFPS = 24
+- eksplozija se ne renderuje, nema AffectVictim i nema zvuka, ima delica. bez particla - FPS = 11, RefFPS = 24
+- eksplozija se ne renderuje, nema AffectVictim i nema zvuka, ima delica. bez particla i fizike - FPS = 13, RefFPS = 24
+
+- Pri teleportovanju padne fps za 10
+- ne renderovanje HUD-a daje preko 20 FPS-a
+
+KAKO BI SE OPTIMIZOVALO:
+- mozda da TuberFabric da ne stvara delice kada ima odredjenu razdaljinu od input player-a....
+- da delici i Particle sistemi koji su nebitni imaju podesen maxRenderDistance. Pogotovo particli oruzja
+- Particle sistemi preseti kod oruzja da se ne ucitavaju tokom igre
+
+

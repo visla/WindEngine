@@ -1,0 +1,694 @@
+26.07.2006
+==========
+- ubacen PassFlares u Prefab-e (znaci da propusta flare-ove kroz sebe)
+- MeshEditor: Refresh Package treba da pravi modele i da radi!!
+
+
+
+27.07.2006
+==========
+
+- bugfix: TextureEditor: "Remove Selected" + "Refresh Package" ne radi!
+- u MeshEditor ubacen TreeView sa listom mesheva i listom materjala
+- MeshEditor: dugme Change ne otvara prozor, vec povezuje materijal sa atributom
+
+
+
+28.07.2006
+==========
+- dovrsene prepravke na MeshEditor-u: SaveSelected, RemoveSelected, RefreshPackage
+
+- pathnodes
+  - WePathNode::SequenceNumber je uvek >= 0 (-1 oznacava startnu poziciju)
+  - u WeWorld ubaceni TotalPathNodes i PathNodesSorted[MAX_PATH_NODES]
+  - u WePathNode ubacen SortedIndex - indeks u gornjem nizu
+  - WeWorld::PathNodesSorted se popunjava u WeWorld::Load
+  - u WeTuber ubaceno: LastPathNode, PathNodeCounter, RefPathNode, RefDistance
+
+
+
+29.07.2006
+==========
+- fake za brojanje krugova: mora da se prodje najmanje 3 node; popravljeno!
+
+
+
+31.07.2006
+==========
+- pokusaj popravke MotioBlur-a da bude malo bolji:
+  - ubaceno ogranicavanje vrednosti (limit u PixelMotionBlur.fx)
+  - jacina blura zavisi od FPS-a -> Param1 = 1 / WeTimer::GetDeltaTimeF()
+
+
+
+01.08.2006
+==========
+- pathnodes
+  - izbacen PathNodeCounter
+
+- popravljen Flare na brodovima (koristi se efekat Tubers.Effects.Flare)
+- Effects.Lights.Lights_NMap_SMap
+
+
+
+02.08.2006
+==========
+- pathnodes
+  - zavrseno racunje pozicije, ostao bug: nesto oko MyStartLocation
+
+
+
+03.08.2006
+==========
+- MapEditor: ispis pozicije selektovanih objekata
+- MapEditor: ubacena opcija "Edit -> Fix Start Locations" koja u header mape upisuje samo lokacije za koje postoje actor-i
+- buxfix: racunanje pozicije dobro radi svugde
+
+
+
+04.08.2006
+==========
+- ispravljen bug u WeLight::Tick (upis u TM ako je actor unisten) -> prebaceno u WeActor::Tick
+- brzina kamera u garazi ne zavisi od FrameRate-a
+- bugfix: Alt+F4
+- ispis tezine izabranog AI-ja
+- Effects.Projectors.ProjectorSpot - obrtanje Y koordinate za sliku
+
+
+
+07.08.2006
+==========
+- bugfix: ucitavanje konfiguracije, ubacen versioning
+- izbaceni svi WARNING-zi iz WindEngine-a i MapEditor-a
+- bugfix: rad sa Cube teksturama u MapEditor-u
+- u String i WString ubaceno .Contains
+- Lenguage.utlp -> Language.utlp
+- ispis tezine AI-ja pri izboru
+- mogu da se biraju svi AI-jevi bez obzira na novac (CAIProfileManager::GetProfile), linija 'if (p->CashCategory == cash)'
+- PATHNODE: ne sme da bude dve sa istim SequenceNumber
+- SequenceNumber moze da budu SN < 0, i onda je to pathnoda iza teleporta koja je vezana za +SN
+- pocetak prelaska na VS2005
+
+
+
+08.08.2006
+==========
+- bugfix: HP bar se sada iscrtava u odnosu na maksimalni HP tubera
+- portovanje CEGUI 0.5 RC1 na VS2005
+
+
+
+09.08.2006
+==========
+- VS2005 + CEGUI 0.5 RC1 potpuno funkcionise, ostali manji problemi
+
+
+
+10.08.2006
+==========
+- bugfix: spawn na pathnode iza teleporta
+
+
+
+11.08.2006
+==========
+- bugfix: WeFileStream kada fajl ne postoji
+- bugfix: u WeMusicStream kada je SoundBuffer = NULL
+
+
+
+14.08.2006
+==========
+- popravljena kamera, nema vise skokova; kamera jos uvek ponekad izlazi izvan tunela
+- ubacena provera da su zvuci koji se pustaju <> NULL
+- u WeServer, pri slanju komande se koristi iterator za obilazak klijenata
+
+
+
+16.08.2006
+==========
+- NearClip = 0.1, FarClip = 3000
+- kamera je laksa i ne izlazi izvan tunela
+- debug: default LapCount = 10, windowed mode ako postoji ut_windowed.txt
+- automatski se kupuje tuber iz ut_autobuy.txt
+- CAllDialogs.h i CAllDialogs.cpp razdvojeni - svaki dijalog posebno (nije uradjeno do kraja)
+
+
+
+17.08.2006
+==========
+- kompletno izbaceni CAllDialogs.h i CAllDialogs.cpp
+- nijedan prozor u MapEditor-u vise nije TopMost
+- MapEditor maximizovan na pocetku
+- MaterialEditor: dodate liste materjala, tekstura i efekata
+- MeshEditor: mesh se uvek snima kao XXX_M, a odgovarajuci model kao XXX
+
+
+
+18.08.2006
+==========
+- doradjen MeshEditor
+- MapEditor: FillTree -> paketi i grupe se ubacuju samo ako sadrze nesto
+- screenshot: trebalo bi da ne prepisuje prethodne
+- doradjen MaterialEditor
+
+
+
+21.08.2006
+==========
+- doradjen TextureEditor
+- bugfix: SetUseNormalMap zapravo napravi neki bug! zamenjeno sam SetNewUseNormalMap
+- MeshEditor: dugme "Save old style" - bez automatskog rename-a
+
+
+
+22.08.2006
+==========
+- ForceReload: u svim Manager-ima, ako je ForceReload == true, treba da se izbaci ako vec postoji
+- bugfix: SPACE: ubacuje poslednji ubacen -> bug ako pre toga nije nista ubaceno!
+- ImportTexture/ImportXFile treba da otvori DialogSave, default je trenutno selektovan paket+grupa
+- kada se otvara MeshEditor, automatski se selektuje mesh koji je trenutno selektovan
+- bugfix: Texture, Shader i Mesh Manager-i kreiraju novi resurs samo ako je neophodno
+- shortcuts za pokretanje editora
+- kad ase otvori MeshEditor, automatski se selektuje mesh za trenutno selektovan model
+- BeginWriting + ReplaceExisting -> dodaje na kraj
+
+
+
+23.08.2006
+==========
+- MapEditor: Options/CompactPackage
+- bugfix: RefreshPackage popravljen
+- bugfix: selektovanje objekata (ForceReload vraceno na staro), automatski se reload-uju texture i mesh-evo posle Import-a ili RefreshPackage-a
+- fix: kod flare-ova, Corona se dobro orjentise
+- fix: tokom ucitavanja table, bolje je rasporedjen progress bar
+- bugfix: radi na 1024 (novi CEGUIBase.dll -> default velicina fonta je 0)
+
+
+
+24.08.2006
+==========
+- MeshEditor: RefreshPackage ocuvava materjale
+- DialogActor: popravljen Teleport
+
+
+
+25.08.2006
+==========
+- kamera: pribilizavanje i udaljavanje u zavisnosti od ubrzanja
+- PathNodes: vise se ne koristi virtuelna startna lokacija
+- MapEditor: posle Ctrl+C selektuju se klonovi
+- racunanje pozicije: ne koristi se MyStartLocation
+
+
+
+28.08.2006
+==========
+- fixed: broj karaktera u imenu! mozda je ukupno ograniceno??
+- popravljena kamera
+- UseNormalMaps se vise ne koristi - uvek se kreiraju normale
+- CDialogModelEditor: automatski preuzima podatke i CDialogMeshEditor
+- preradjen AniMeshEditor
+
+
+
+29.08.2006
+==========
+- za animacije se generisu tangente
+- trail-ovi i flare-ovi na tuber-u se uzimaju na osnovu imena
+- tuber-light.cfg za konfiguraciju svetla na tuberu; ako ne postoji, nema ga
+- MeshEditor: Show only selected
+- MapEditor, TextureEditor: prikaz slicice u zavisnosti od vrste teksture (po imenu)
+- MapEditor: DialogInsert i DialogSave pamte sta je izabrano prethodni put
+- popravljena obicna animacija
+
+
+
+30.08.2006
+==========
+- fixed: flicker kada se menja vrsta trke
+- AmbientColor: lights.cfg, prva linija; CInitializePhase za ME i UT
+- CConfig: ucitavanje konfiguracije za tuber i svetla
+- popravljena selekcija animacije
+- MeshEditor: ubacena lista modela, i rad sa njima
+- MapEditor: bookmark pozicija (Ctrl+NUM = set) (Alt+NUM = jump)
+- MapEditor: ` -> skok na prvog aktora
+
+
+
+31.08.2006
+==========
+- bugfix: flare-ovi i trail-ovi
+- zapoceo prepravljanje UI-ja
+
+
+
+01.09.2006
+==========
+- sve prebaceno na CreateButton i CreateText
+- izbacen ekran kada se bira taster
+
+
+
+05.09.2006
+==========
+- descore-ovan COptionsVideoPhase
+- popravljen CControllerSettings
+
+
+
+06.09.2006
+==========
+- popravljen bug u DialogEffectsEditor (AttachInfo)
+- pozicija svakog button-a moze da se postavlja iz cegui.ini
+
+
+
+07.09.2006
+==========
+- rad na UI-ju
+
+
+
+08.09.2006
+==========
+- pozicija i velicina svih komponenti se podesava preko cegui.ini
+
+
+
+15.09.2006
+==========
+- commit novog UI-ja
+- kontraapostrof u PlayGame: on/off HUD-a
+- izbacena rezolucija 640x480, ubacena rezolucija 1280x960
+- mape se biraju sa Prev/Next
+- MaterialEditor: otvara se materijal atributa koji je selektovan u MeshEditor-u
+
+
+
+18.09.2006
+==========
+- popravljeni checkbox-ovi
+- combobox-ovi nemaju scrollbar
+- u glavnom meniju je uvek otvoren SinglePlayerPhase ili MultiPlayerPhase
+- ExportDDS export-uje u _Textures\...
+- manje dorade u AnimTextureEditor
+- manje dorade vezane za render HUD-a
+- boja selektovanog item-a je jedinstvena za sve combo-e i multiliste
+- TIMETRIAL: disable-ovanje Weapons-a
+- glavni meni: Profiles
+
+
+
+19.09.2006
+==========
+- energy bar iznad enemy-ja
+- CreateProfile ekran
+- crni okvir oko boje tima
+- PlayGameMenu: Caption = GAME PAUSED
+- prebaceno ucitavanje iz MainGameInterface::Initialize u LoadMapPhase
+- shipyard: levo/desno preko tastera ceka da se taster pusti
+- LASTONE: nema biranja krugova 
+- TIMETRIAL: iskljucuju se oruzja
+
+
+
+21.09.2006
+==========
+- RACE TYPE ide u prozor za biranje mape
+- uvek 1 pixel border oko TeamColor
+
+
+
+22.09.2006
+==========
+- zavrsen CMultiRacePhase (kada se proveri izbacuju se ChooseMap, HostGame, CreateMultiplayer)
+- popravljen ESC u IN_GAME_MENU
+- popravljeno racunanje pozicije za LASTONE
+
+
+
+25.09.2006
+==========
+- popravljen prikaz "You must restart ..."
+- BeginReading i BeginWriting uzimaju u obzir TypeID, tako da mogu da postoje elementi
+  sa istim imenom razlicitog tipa
+
+
+
+26.09.2006
+==========
+- doradjeni TextureEditor, MeshEditor, MaterialEditor, SaveDialog
+
+
+
+27.09.2006
+==========
+- GetFile: cuva direktorijum u kom je bio
+- doradjeni MeshEditor, MaterialEditor, TextureEditor, SaveDialog
+- podesavanje FarClip-a u editor-u
+- scrollbar-ovi
+
+
+
+28.09.2006
+==========
+- OptionsInput: scrollbar-ovi za Mouse & Keyboard & Joystick sensitivity & Joystick deadzone
+- MultiSelection
+- dorade u MapEditor-u
+- kada je u "Waiting for players..." i neki igrac izadje, prikaze da je on izasao, ali ga i dalje ceka
+- automatsko zaokretanje broda kada se skrece
+
+
+
+29.09.2006
+==========
+- opcije u InGame meniju
+- dorade u garazi
+- dorade u MainGameInterface
+- ubaceno Renderable = false u CTuber::Tick kada je RaceFinished i nije IsInputPlayer
+
+
+
+02.10.2006
+==========
+- popravka selekcije
+- popravke u UI-ju
+
+
+
+03.10.2006
+==========
+- ubrzano brisanje iz paketa
+
+
+
+04.10.2006
+==========
+- dorade u MapEditor-u
+
+
+
+05.10.2006
+==========
+- dorade u MapEditor-u
+- CGameCamera: ubaci FinishingCamera koja se koristi kada se zavrsi trka
+- ut.Collision.* koeficijenti
+
+
+
+06.10.2006
+==========
+- healing i headlight za pathnode
+- TAB properties ostaje kada se selektuje drugi objekat istog tipa
+- dorade u MapEditor-u
+- selektovanje objekata po grupama
+- Find/Set za texture u MaterialEditoru
+
+
+
+09.10.2006
+==========
+- ucitavanje garaze: kao LoadMapPhase, da se koristi LoadInTick
+- prikaz plane-a za ParticleSystem odakle se emituje
+
+
+
+10.10.2006
+==========
+- prva verzija wepackage.wcx koja radi
+- Checkbox-ovi za View u MapEditor-u
+- ubacen Refraction u VideoOptions
+
+
+
+11.10.2006
+==========
+- prozori u editoru se odmah iscrtaju ako se shake-uju -> pozovi Repaint ili sta li vec
+
+
+
+12.10.2006
+==========
+- View/AddedPostProcess
+- View/PixelMotionBlur
+- SpeedScreen
+- ubaci da se snima EditorOptions, sa njim i trenutne kombinacije u View
+- popravljena kamera kada se prodje kroz teleport
+- zatamnjivanje slike u INGAME
+- MeshEditor: Copy/Paste atributa na mesh-evima
+- ubaci ispisivanje noda koje se izbace i razlog u debug.log
+- dok je u INGAME ne treba da blinka "Wrong Way"
+
+
+
+13.10.2006
+==========
+- Info za svakog actor-a koji se ispisuje pored njega
+- kada se igra pauzira, PixelMotionBlur i dalje drhti
+
+
+
+16.10.2006
+==========
+- popravljen bug u ucitavanju pathnode-a
+
+
+
+17.10.2006
+==========
+- ako u mapi ne postoji PathNode-a, automatski se ubacuje jedna u (0,0,0)
+- poboljsano ucitavanje
+- reverse camera i dugme za nju
+- debug verzija: F4 ukljucuje/iskljucuje "FPS: xxx.xxx"
+- disable-ovan Shadow u OptionsVideo
+- ubacivanje vise objekata odjednom
+- ucitavanje svih preseta za modele
+- zvuk na svakom dugmetu
+- popravljene pathnode-e
+- poboljsana Alt selekcija
+
+
+
+18.10.2006
+==========
+- RenderPhases
+- MapHeader sadrzi ClippingDistance i MusicFile
+- SaveMap: proverava StartLocations i PathNodes
+- na pocetku table, postavi clipping distance prema MapHeader.ClippingDistance
+- reverse camera da radi bez interpolacije
+
+
+
+19.10.2006
+==========
+- doradjene PathNode: LeftNum, RightNum, FollowTime
+- nove PathNode
+
+
+
+20.10.2006
+==========
+- nove PathNode (Remote...)
+
+
+
+21.10.2006
+==========
+- zavrsene PathNode
+- Orbit mod kretanja u Bugditoru
+- opcije: UnlimitedSpeed/CatchUp
+- 1-0 - promena kamera
+- OptionsVideo: Effects disable-ovan i uvek na Low
+- unusable keys: `, 1-0, F1-F15
+- pathnode: check za Refraction
+- zamrljavanje i refrakcija u INGAME
+- popravljeno: kada se promeni na ReverseCamera, jedan frame se prikazuju trail i flares
+
+
+
+23.10.2006
+==========
+- ubacen MultiInsert
+- Light: CoronaRotation -> za QuantumLaser, Corona (ne) rotira
+- novi FHDRI
+- Light: AlwaysShowFlares
+
+
+
+24.10.2006
+==========
+- izbaciti Flares iz opcija
+- WePostProcess::TurnOn/TurnOff -> WeRenderDevice::SetPostProcessEffects
+- PostProcess, MotionBlur, Glow mogu da se menjaju INGAME
+- probao da ogranicim kretanje kamere u zavisnosti od daljene od PathNoda, ne daje dobre rezultate
+
+
+
+25.10.2006
+==========
+- default za respawn pickup-a da bude 30s
+- CPlayGamePhase: umesto ` da ide F1 za on/off interfejsa, FPS se iskljucuje kada je interfejs off
+- TuberWorld za svakog tuber-a
+- kada tuber udari u zid, njegov Velocity se ispravlja u pravcu RefPathNode
+- ucitavanje svih tubera u CLoadMapPhase
+
+
+
+26.10.2006
+==========
+- racunanje RefPathNode za proizvoljnu poziciju
+- opcija za kameru: Centered -> krece se po nodama
+- opcija za kameru: Stopping -> zaustavlja kameru momentalno
+- opcija za kameru: NoTrail -> da se ne vidi glavni trail
+- popravka u CChooseProfilePhase
+- nova fizika pri koliziji: tuber se usmerava u pravcu RefPathNode
+
+
+
+27.10.2006
+==========
+- pri proracunu brzine tubera, u obzir se racuna brzina koju izracuna AGEIA
+- ut.ini razdvojen na vise ini fajlova
+- opcija za kameru: MinDistance koja govori najmanju udaljenost kamere od tubera, osim ako udari u zid
+- Shaking node -> 2 sekunde soft shaking
+- izbacena poruka Loading za garazu
+
+
+
+28.10.2006
+==========
+- prikaz FPS-a nezavisno od HUD-a
+- ubrzan HUD (izbacen BeginScene/EndScene u WeCanvas)
+- Ctrl+Shift + NUM -> on/off za RenderPhases
+- duzina imena profila ogranicena na 20
+- izbacen CLOSED u SingleRace
+
+
+
+30.10.2006
+==========
+- maximalno 8 igraca, preradjen UI u SingleRacePhase
+- u WePhysics, staticka i dinamicka frikcija postavljena na 0 za materijal 2, koji se koristi na tuberima
+- popravljen OptionsInput
+ 
+ 
+ 
+31.10.2006
+==========
+- izbacen MainShoppingPhase, direktno se ulazi u garazu
+- ubaceno podesavanje FOV-a za svaku kameru
+- popravljeno 2D renderovanje
+- FOV za kamere se podesava iz cameras.ini
+- popravljeno renderovanje svetala
+- u garazi se prikazuju .utt mape
+- dinamicka promena TextureQuality
+- doradjen izgled CSingleRacePhase
+- ExportOBJ: obrtanje Z-osu
+- LoadMapPhase: ubaceni PickUp-i
+- posle explozije, kamera da prati prvi tuber-part (ukodirano, trenutno se ne koristi)
+
+
+
+01.11.2006
+==========
+- popravljen bug: kada se svetlo klonira, stvaralo se u (0,0,0)
+- MOVING: Ctrl+Shift pomera 10 puta sporije od ScrollSpeed [17]
+- default imena profila je ULTRA RACER [27]
+- Back to menu treba da se zove quit race [30]
+- u svakoj novoj trci, postavlja se prva kamera
+- MapEditor vise ne zauzima 100% procesora
+- pri ucitavanju modela, ispisuje se ako ne postoji mesh
+- dodatna ucitavanja pre pocetka trke
+- ut_autobuy kompletno preskace garazu
+- popravljeno: ostaju podaci u levoj koloni o kupljenom brodu posle kraja igre [29]
+- popravljen bug: flare-ovi iz garaze se pojavljuju u igri i obrnuto!
+
+
+
+02.11.2006
+==========
+- popravljeni MOVE i ROTATE u Bugditor-u
+- popravljen Glow
+- varnice [12]
+- WeActor::AutoDestroy -> govori da li se actor automatski unistava posle LifeTime
+- optimizovane varnice: prikazuje se najvise 1000
+
+
+
+03.11.2006
+==========
+- popravljeno renderovanje svetala u TuberWorld-ovima
+- doradjene i optimizovane varnice
+- doradjena kamera, nema vise warp-a (jos uvek nije savrsena)
+- uradjen novi Diablo-style HUD
+- pamcenje poslednjeg profila [33]
+- Back dugme u profilima [35] -> zamenjeno automatskim selektovanjem aktivnog profila
+- CatchUp da je po default-u ukljucen
+- popravljeno: spawn na TELEPORTING nodi
+- doradjen CLoadMapPhase
+- ublazena eksplozija mina
+- Shaking da se radi ako je Velocity < nekog-malog-broja (vec uradjeno), i Velocity > 0.01 (da ne bi shake-ovao na 0)
+- popravljeno: pri skretanju, gubi se brzina
+- popravljeno: kada se selektuje animacija, ubrzana je
+
+
+
+06.11.2006
+==========
+- prepravljen CTuber::Tick, tako da CurrentSpeed oznacava aktuelnu brzinu, a ne iz prethodnog Tick-a
+- popravljen CDialogMeshEditor
+- u TimeTrial, CatchUp treba da bude desable-ovan (i na off, za svaki slucaj)
+- MapInfo ne stoji na dobrom mestu
+- visina slicica za health i turbo (da bi spustanje bilo lepo) -> uradi da ti nenead kaze procenat visine slicice koji se koristi
+- zvuk za CTuberSparticles
+- napravi ispis imena modela da bi se debug-ovale greske u renderingu
+- kada se ide unazad, ne treba toliko da cima
+- izbaceni Trails sa Tuber-a, posto prave probleme
+
+
+
+07.11.2006
+==========
+- lep prelazak sa jedne na drugu kameru
+- izbaceno kretanje levim tasterom misa, posto nesto ne valja, sada ne radi Orbit mod
+- CatchUp da se automatski enable-uje tek kada imaju dva igraca
+- StatMusic za mapu
+- popravi CTuberSparticles da bude samo jedan actor
+- CTuberSparticles prepravljeni u CSparticles
+
+
+
+08.11.2006
+==========
+- teleport: da ima radijus koliko od centra se uzima u obzir
+- ispis GetInfo-a: crna pozadina, zuta slova
+- nov nacin koriscenja iteratora u CSmartList (FirstI, NextI, EndI)
+- Sparticles: Gravity da se rasturi na GravityX, GravityY, GravityZ
+- popravljeno numerisanje noda
+
+
+
+09.11.2006
+==========
+- popravljene node, automatsko orjentisanje node ka sledecoj
+- popravljen prikaz MaterialColor-a u MaterialEditor-u
+- dorade u prikazu u MapEditor-u
+- preradjena selekcija objekata, sada se ne kreira novi actor
+- popravljeno: kada se igra, QuitRace, ponovo udje, pukne pri init-u Sparticle-a
+- uradjen Resave za mesh-eve tako da prvo gleda _OLD_PPP.GGG.III, pa tek onda PPP.GGG.III
+- ubacen Progress za Resave
+- popravljeni problemi vezani za selektovane objekte (brzina svetala, prikaz particle systema)
+- pri import-u da se cuvaju svi materjali koji su postavljeni
+
+
+
+10.11.2006
+==========
+- resavani problemi vezani za nove actore, izbacivanje prefaba
+- manje dorade u editoru
+- popravljeno: particli trepere - koliko su van ekrana, toliko dugo su dobri, posle se zbrljaju
+- popravljeno: novi actori nestaju kada udju u levu polovinu ekrana!
+- popravljen fog u igri
+- popravljeno: "Map XXX saved." se javlja i kad je izabrano Cancel
+- popravljeni problemi vezani za node (kamera, brojanje krugova)

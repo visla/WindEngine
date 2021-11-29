@@ -1,0 +1,9 @@
+Log: Log file opened: 11/06/06 23:32:12 (Log level is: 10) 
+(331359781) Log: Network system initialized
+(331359781) Info: Server initialized
+(331359796) Notice: OpenUDPSocket(): NetInterface not supplied using any local address
+(331359796) Notice: OpenUDPSocket(): Port not supplied. Picking one automaticly
+(331359812) Info: Socket opened, UDP = 2371
+(331359812) Info: Client initalized
+(331367312) Info: Server shutted down
+(331367312) Info: Client shutted down

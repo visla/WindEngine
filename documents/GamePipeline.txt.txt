@@ -1,0 +1,8 @@
+- UpdateWindow - ovde se procesuju poruke prozora
+- ProcessInput - Velocity i AV se prave ovde
+- SendDeltaCommand - Salje i pravi poruku za pucanje i V, AV
+- AIKernel->Tick
+- World->Tick
+- Camera-Update
+- DoRender
+- Engine->Update

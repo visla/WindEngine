@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1082"
+   name=""
+   committed-date="2006-11-10T16:04:11.837125Z"
+   url="svn://eipix1/WindEngine/Game/Editors/MapEditor/Source/Editor%20Phases"
+   last-author="alexa"
+   kind="dir"
+   uuid="1c19f8eb-1f4e-a14c-8f2d-814361978f10"
+   repos="svn://eipix1"
+   revision="1086"/>
+<entry
+   committed-rev="28"
+   name="CCreateDialogsPhase.h"
+   text-time="2006-10-28T12:33:27.375000Z"
+   committed-date="2006-06-09T14:03:41.399374Z"
+   checksum="41f1ce42a5e5b215fcea43dc007b9d5f"
+   last-author="visla"
+   kind="file"
+   prop-time="2006-10-28T12:33:27.296875Z"
+   revision="1047"/>
+<entry
+   committed-rev="28"
+   name="CTerminatePhase.h"
+   text-time="2006-10-28T12:33:27.375000Z"
+   committed-date="2006-06-09T14:03:41.399374Z"
+   checksum="7b3a42ec9804120ea5809453a9d0bcaa"
+   last-author="visla"
+   kind="file"
+   prop-time="2006-10-28T12:33:27.296875Z"
+   revision="1047"/>
+<entry
+   committed-rev="1070"
+   name="CInitializePhase.cpp"
+   text-time="2006-11-11T09:11:30.562500Z"
+   committed-date="2006-11-08T18:33:37.953125Z"
+   checksum="9b2b79666ce7d0eb6e636664b589bbe9"
+   last-author="alexa"
+   kind="file"
+   prop-time="2006-11-11T09:11:30.531250Z"/>
+<entry
+   committed-rev="1082"
+   name="CMainPhase.cpp"
+   text-time="2006-11-11T09:11:30.562500Z"
+   committed-date="2006-11-10T16:04:11.837125Z"
+   checksum="3befe3587cec6ddbeaef5279e30fda1c"
+   last-author="alexa"
+   kind="file"
+   prop-time="2006-11-11T09:11:30.453125Z"/>
+<entry
+   committed-rev="1049"
+   name="CCreateDialogsPhase.cpp"
+   text-time="2006-11-11T09:11:30.562500Z"
+   committed-date="2006-11-07T18:31:55.000000Z"
+   checksum="4f766144b61d3bd76750999593c25883"
+   last-author="alexa"
+   kind="file"
+   prop-time="2006-11-11T09:11:30.515625Z"/>
+<entry
+   committed-rev="28"
+   name="CInitializePhase.h"
+   text-time="2006-10-28T12:33:27.421875Z"
+   committed-date="2006-06-09T14:03:41.399374Z"
+   checksum="ec6e9b88cadca4680d46c9e04d2c4abe"
+   last-author="visla"
+   kind="file"
+   prop-time="2006-10-28T12:33:27.328125Z"
+   revision="1047"/>
+<entry
+   committed-rev="28"
+   name="CTerminatePhase.cpp"
+   text-time="2006-10-28T12:33:27.437500Z"
+   committed-date="2006-06-09T14:03:41.399374Z"
+   checksum="85c068a3dab5fd82c955542441a449be"
+   last-author="visla"
+   kind="file"
+   prop-time="2006-10-28T12:33:27.343750Z"
+   revision="1047"/>
+<entry
+   committed-rev="615"
+   name="CMainPhase.h"
+   text-time="2006-10-28T12:33:27.437500Z"
+   committed-date="2006-08-25T20:12:04.750000Z"
+   checksum="f6d76693d613d72712a2b8436fbcb2e1"
+   last-author="gojca"
+   kind="file"
+   prop-time="2006-10-28T12:33:27.359375Z"
+   revision="1047"/>
+</wc-entries>

@@ -1,0 +1,325 @@
+
+
+=============[Goran]=============
+
+	Stuff:
+- tuber scratching sounds & spark sounds
+- tuber smoking
+- sparks pri koliziji dva tubera
+- sparks pri ekplozijama
+- FOV se menja pri translocatoru
+- hard bot tiltuje turbo
+
+	Bugz:
+
+	Low Priority:
+- CUberText::GetTextWidth() ne sljaka inicijalizacija Gdiplus::Font;
+
+	Done:
+- headlight sound
+- tuber collision sounds
+- testirati sound deaf, slowingrocket, smokemineexplosion, homingmineexplosion
+- teleporting sound
+- volumetest ubaciti u menu
+- test youwin
+- podesiti music
+- warning i lock se tickuje i kad je meni ukljucen, NOT!
+- turbo burn se vidi na FPS, NOT!
+- 1-3 sec no sound pri jakoj exploziji
+- tuber collision sound
+- videti sta sa prikazom brzine u catchup, catchup brzinom, etc...
+- srediti beepbeepbeep (TimeEndText) zvuk da se ubrzava
+- spreciti smanjivanje velocity ako si invul (slowing rocket)
+- podesiti vreme za timetrial u mapama
+- distant explosion sounds
+- videti sta sa guranjem mine posto je trenutno prejako zbog novog kretanja, samo istestirati
+- muzika alt+tab da prestane
+- izbaciti ammo reloaded i turbo recharged na kraju trke
+- ingame.misc.youwin_1st_2nd_3rd
+- da ne pise ammo reloaded ako je weapons off
+- ne treba prikazivati da su coins skupljeni u uberlines
+- score da se pretoci u coins na kraju trke
+- da maingameinterface racuna score onako sa brojanjem
+- score za poslednji krug da se izracuna kako treba
+- score da se dobija od tacno oduzetog HP umesto od full damage oruzja
+- propulsion probati po bojama tubera
+- propulsion za sve tubere ubaciti i isprobati
+- istestirati catchup
+- animacija za skupljanje oruzja (TOMO CARE!)
+- quantum bolt alpha na flares
+- pogledati koje stvari nisu ucitane u load map fazi (sigurno nije 10 delova raspadanja tubera)
+- kada se zavrsi trka, ne preuzme uvek dobro prva motorika kretanje tubera
+- posle 8sec idenja max brzinom da se kamera malo shakuje
+- tuber imena da se ne vide u drugom tunelu
+- pickups kad nisu aktivni da i dalje levitiraju i okrecu se
+- pickup lock raycast, pickup lock da bude na vecoj daljini
+- nema potrebe da ide safety engaged ako je jedan player u trci
+- kretanje botova po nodama ako je follow nodes upisano u njih
+- n seconds weapons off u pocetku trke
+- enemy lock u pauzi da ne rotira (lokalno vreme mesto elapsed)
+- srediti raspored ispisa wrongway, multikill, laptime Y koordinate
+- CAVPlayback, animacija kada se pusti pri fullscreen rezoluciji u kojoj je desktop, vidi se deo desktopa u pozadini, crni prozor ne izadje na vrh pre animacije (samo za 16:9)
+- malo se trese tuber kad krece i bez turba
+- keyboard sensitivity radi naopacke (mozda ga jos smanjiti kad je na minimumu)
+- na kraju trke treba iskljuciti invis/invul/quad
+- homing mine moze da xplodira pri postavljanju
+- multikill se racuna i sa samoubistvom
+- podesiti poziciju teksta preostalih sekundi za time trial
+- fps ispis (f4) non debug i pozicija ispisa
+- tabela pozicija levo na kraju trke kad neki zavrse
+- testirati lastone i time trial
+- izbaciti double damage
+- homing mine explosion bug
+- camera shake za tuber xplosion
+- srediti tubers cfg i ai cfg
+- problemi sa path nodama na rachvanju (quazy solved)
+- sta raditi na kraju kad tuber zavrsi trku i dodje do teleporta? (ugasiti pre nego sto dodje ;)
+- botovi se zaglave u metak koji ispale (standard bolt, standard rocket)
+- ai svestan blur mine
+- kada se puno puta za redom ponavlja tuber xplozija, pukne u weactor::tick kad se tickuje tuber part
+- svi imaju standard rocket za demo u pocetku
+- splash xplozija radi damage per sec kao nuke
+- coin animacija flash zhuto je prejako
+- pri xploziji da kamera menja lookat a ne poziciju
+- headlight
+- deny forbidden weaps for demo
+- FHDRI™
+- race finished, fade tubera
+- respawn samo puni HP
+- pozicije levo, smanjiti font, boja ko je zavrsio trku i ograniciti duzinu imena
+- nuke xplozija ne pravi uvek isti damage (moguce zato sto se ageia trigger ne okida svakog ticka)
+- ponekad: pri startu, sound je savovan kao 0 ali ga ima ponekad (ovo je prbl samo u windowed modu pri startovanju)
+- multiple kill ispisivanja: ne brise se prethodno ukoliko nije gotovo pre pojavljivanja novog (pri mnogo-killova u malo vremena)
+- inverse mouse ne sljacka kako treba u singleplayer
+- pri startu, muzika ide ali je volume 0
+- i dalje se spawnuju sva oruzja, particles, sve zivo od CWeapon u (0,0,0) u jednom frame
+- Srediti kameru prema novom dildou
+- kada igrac obrne krug mozda nece odmah da mu prijavi da je zavrsio trku. Ovo se desavalo sa botovima i sa svim onim igracima a mozda kada je samo jedan krug
+- srediti da se volume za soundfx podesava svakom bufferu pojedinacno a ne direktno primary bufferu
+- Kada se kupi brod pa onda uradi escape iz shipyarda i ponovo udje u igru onda je brod kupljen a ne treba da bude. Ovde bi trebalo da ide slicno ono sto ide i u FinalizeGamePhase kada se brisu igraci
+- podesavanje sound volume ne radi
+- kada tuber bude ubijen, i recimo explozija koja ga je ubila mu da neki velocity, on uspeva cesto da bude isteran iz tunela (kada je ubijen, nema kolizije sa tunelom pa izadje);
+- ne vidi se "Gari is OUT!" u lastone ispisu na klijentima, samo na serveru -> treba ubaciti ovakve ispise i kad neko zavrsi igru 1. 2. 3. u standard race
+- explozije vise ne uticu na tubera, ne radi davanje impulsa physicshandlu
+- ne radi "pun krug" jer pri drugom igranju, pri kreaciji explozija, u prvom frame static model nema ucitane materijale
+- iz nekog razloga ne radi WeActor->Model->Mesh->Materials[0].GetItem() (naravno pre toga je pozvan .First()), iako sigurno tu postoji materijal (pogledati CExplosionLocalized i CExplosionSplash); Ovo mozemo resiti ako se ubaci mogucnost da engine moze da vrati duzinu trajanja animacije zeljene texture;
+- kada explodiren mina (multiple explosion splash), neki od explosion plainova se pojave direktno ispred tubera i kamera misli da je udareno u zid ili sta vec i prestaje tuber da se renderuje;
+- desava se, veoma retko na eipix masinama, ali zbogo ovoga je neigrivo na stranim masinama, da kada se poziva pri kreaciji bilo kog oruzja physics CreateSphere() da u WindEnginu pukne jer nije uspesno kreiran nxActor;
+- oruzja (metkovi) izlicu van tunela, kolizija treba da se sredi bolje;
+- posto MovingMine nije trigger, ideja je da ostane u tunelu dok se krece, da ne explodira, ali da explodira kad udari u tubera; ali uopste se ne poziva OnCollision za nju;
+- tuber prestaje da se renderuje veoma retko, kada se ide velikim brzinama / turbo i ocese o zid ili prodje pored nekog ukrasa nivoa or sth, ponovo pocinje da se renderuje kada se kamera ocese o zid veoma blizu;
+- Dynamicki objekti nemaju CCD?
+- i dalje je moguce da tuber izleti sa staze u nekim slucajevima;
+- explozije (pogotovu od lasera) su billboardi i izgledaju preseceni na pola jer se Z preklapa sa nekim pologonima mesta gde su udarili (obicno prefab - tunel);
+- kada se setuje Renderable na false u CTuber::Die(), negde se posle toga prebaci na true do drugog ticka tako da se tuber vidi kada umre i explodira;
+- ne radi postprocess Ghost, param1 od 0.0 do 1.0, uvek proizvede potpuno crn ekran
+- WeTrail kada se preklope vise njih ili jedan sa nekim alpha particlem (or sth) dolazi do visual shitova, nestajanja traga; (ovo je resolvirano kao alpha-alpha bug koji je neresiv);
+- u fullscreen / windowed modu moguce je misem da se izadje iz prozora igre i da se klikne na desktop; u fullscreen samo ako korisnik ima 2+ monitora a u windowed je uvek moguce; treba spreciti misa da izlazi van prozora igre; ovo je vec uradjeno jednom ali treba popraviti;
+
+=================================
+
+
+
+
+============[Whistla]============
+
+
+- da server ima OnPlayerSpawned koji se salje kada se player spawnuje na clientu. Tada se oznacava MapLoaded i kada svi budu imali ovo onda se salje StartRace
+- obrtanje krugova da radi kako treba nesto ima gresku. FastestLap za cliente preko stats nije isti na klijentu i serveru
+- Kada server izlazi iz igre ne pise vise host left
+- Staviti eksploziji da ima materijal koji je alpha blended jel izgleda da nije
+- Napraviti da postoje posebno server, client funkcije koje rade za LAN i za internet 
+- napraviti da postoji jedan paket Editors koji sadrzi elemente potrebne editoru
+
+TODO:
+- promeniti Box-u u MEMeshes da ima za material preset 1 neki konkretniji materijal
+- ispis materijala u editoru pored imena modela (NEMOZE ZATO STO SELEKTOVANI OBJEKAT IMA SELECTION MATERIJAL)
+- ne radi MoveUp MoveDown u editoru pod light dialogom
+- prelaz i fading ekrana iz shipyarda u igri
+- kada se u mulitplayeru server izadje, ostali na esc ne dobijaju vizualno meni
+- Optimizacije radi: Ubaciti WorldView da bude matrica koja vec ulazi u svaki shader
+- Testirati kako radi alpha u kombinaciji sa particlima i flareovima
+- testirati kako radi refleksija. 
+- 
+
+	Done:
+
+- poziciju updateovati prema broju path node * krug a ne preko prolaska jer translocatorom se neke node preskoce
+- Wrong way ispis
+- Pickup da rade kako treba
+- Udarci u dinamicke objekte
+- Da se svi elementi ucitavaju u LoadMap Phazi. KAo sto su eksplozije, particli i modeli koji se koriste kod oruzja.
+- Da post process ne radi ako nemas shader 2.0
+- on/off vizualno u editoru za portale i zone
+- bug sa pauziranjem i nastavljanjem broda da se krece 
+
+=================================
+
+
+
+============= NENAD =============
+- levo u gameplay-u panel sa spiskom igraca i njihovim pozicijama (periodicno pise i za koliko kasni)
+- "XXX is on the first position" (narednih 5sec se ne ispisuje poruka za XXX-a)
+- "nenad is taking a piss" poruka povremeno
+
+
+	Done:
+- "XXX entered final lap"
+- poruka za nekoga ko ima 5/10 frag-ova zaredom
+
+
+
+
+
+
+
+================== [Alexa] ==================
+CURRENT
+-------
+- proveri na sta se trosi memorija
+- brzina: proveri LoadMaterials koliko uzima vremena!
+
+- wisla: proveri da li IsPrefab moze da se odnosi na, recimo, node ili svetla...
+- wisla: nesto ne valja oko odredjivanja koja svetla uticu na objekat
+
+
+
+TODO
+----
+- podesavanje AmbientColor-a iz MapHeader-a, dodaj u Options/MapDescription
+- za node ubaci faktor koliko da uzima alfe MaterialColor-a za SkyBox; kod FHDRI-ja, kada
+  udje u tamniji deo, ne treba da smanjuje faktor na 0.5, jer ubije ceo glow na tabli vec
+  samo da smanji alfu za MaterialColor SkyBox-a (vidi sa nenadom)
+
+- iscrtavanje odjednom svih specijalnih elemenata: svetala, start lokacija, noda, varnica...
+  (ovo treba da se uradi preko nekog GroupID-a; ako je 0 svaki se renda posebno, inace se
+  svi iz jedne grupe transformisu u VB, pa se taj ceo VB posalje na karticu da se iscrta)
+
+- EffectsEditor: Refresh da refresh-uje i u WeShaderManager-u
+- ubaci trenje na tuber
+- SoundVolume u editoru
+
+- potvrda za brisanje profila [28]
+- popravi kameru [23]
+- usporavanje tubera kada udari u zid
+- srediti kameru pre i na kraju trke (pre da se vrti oko broda, na kraju da kao izadje iz broda i prati ga neko vreme) [22]
+- zvuk se gubi kada se AltTab-uje!!!
+
+
+- proveri PixelMotionBlur
+- proveri da li se zvuci unload-uju na kraju mape
+- proveri da li se PhysicHandle za svetlo recreate-uje negde osim u WeLight::Tick (pomeranja svetala ima veze sa SetKinematics u WeLight-ovom Tick-u)
+- promena materijala za SkyBox -> probaj preko preseta, ako ne moze onda direktno menjaj materijal
+- Refraction na RefPathNode da prikazuje neku sliku [8]
+- izmeri vreme trajanja Tick-a i tih stvari u CLoadMapPhase
+- MapEditor: pomeranja svetala [34]
+- Alt+Space da se ne prikazuje
+- .UTT da se ucitavaju u CLoadMapPhase
+- popravljanje animacije [10]
+
+
+- proveri broadcast na 255.255.255.255 [26]
+- Light: Flare: Size da ide u LightState
+- Dialog za tacno postavljanje pozicije (X/Y/Z) i orjentacije (Y/R/P)
+
+- IF-ovi za LoadSoundAuto
+
+
+
+FINAL
+-----
+- podesavanje parametara za kamere
+- .UTT fajlovi; DarkLurker.utt: lampice treba da imaju (ili nemaju) rotation na corona
+- fali Projector i Shadow za DarkLurker-a
+- ucitavanje svega pre trke [31]
+- LoadMapPhase: izbaci duplikate [24]
+- za svaku SPLIT nodu, sledece dve moraju da budu odmah do nje, isto i za CONNECT
+- Wrong Way ispisuje i RefPathNode->SequenceNumber, ovo izbaci
+
+
+
+BUGS
+----
+- prvi frame je zabrljan (verovatno je los VelocityRT)
+- proveri: baferovan ekran kada se izadje iz garaze (motion blur)
+- u egiptu, animirane ptice nestaju
+- sa 8 igraca, MapEditor se ne kompajlira
+
+
+
+TESTING
+-------
+- kada igra vise igraca, flare u teleporting delu u HighTech-u je svetliji
+- bug: actor-i iz svih TuberWorld-a se ubacuju u glavnom world-u!!!
+- proveri da li u CStatisticsPhase mogu da se sortiraju podaci po kolonama
+- promena FOV-a u zavisnosti od brzine, na turbo da se posle nekog vremena jos poveca FOV
+- Healing < 0
+- u StatisticsPhase ostane ingame menu -> pri izlasku iz PlayGamePhase, zatvori ingame, ali i Options* prozore! (kada je otvoren Options posle kraja trke)
+- novo kretanje sa AI-jem
+- proveri NoTrail kada se gleda sa drugog tuber-a (AI-ja)
+- da li je default profil dobar
+
+
+
+KNOWN ISSUES
+------------
+- kada se direktno skoci na ReverseCamera, pobrljavi se PixelMotionBlur
+- hvatanje svih input event-a
+- dupli klik bilo gde na ChooseProfile
+- alignment za tekst u combobox-u ne moze da se promeni
+- razdelnik u MultiList ne ide do dna
+
+
+
+EXPERIMENTAL
+------------
+- dildo da bude kapsula
+- izbacivanje CCD-a (koriscenje sweep-ova)
+- probaj da projector stavis iznad tubera kada se renderuje, ali za racunicu za objekte koji se vide ostaje ispod tubera (25)
+
+
+
+MENU
+----
+- istestiraj sve kombinacije za host/join game
+- TournamentPhase -> proveri one CreateStaticImage za MapBrowse i Scroller
+- bug (proveri u CMultiRacePhase): LastOne: kada se ubaci drugi ne radi, ubaci treci rad, izbaci treci -> ne radi
+
+
+
+ENGINE
+------
+- BASS
+- izbaci frame kada je DeltaTimeF - 0 (mozda?)
+- ucitavanje: da se MipMap leveli generisu pri ucitavanju + Fix za editor da iz textura izbaci MipMap levele
+
+
+
+GAMEPLAY
+--------
+- ucitavanje samo tubera koji se koriste
+- mreza: proveri prenosenje trenutne pozicije, trenutnog lap-a i tih stvari
+    
+
+
+MAP EDITOR
+----------
+- ColorClipboard, moguce resenje: koriscenje edit-a za color
+- AI: kada se izabere tuber, ne pojavi se specifikacija za part-ove, ali radi
+- SkyBox dijalog!!! MR. GOJCA TEH PWNER!!!
+- MeshEditor:
+    - rucno okretanje modela 
+- AnimMeshEditor:
+    - promena materjala: kao u MeshEditoru (umesto Change da postoji lista)    
+    - AnimMesh-evi treba da imaju property index animacije koja se pusta (mozda i start animation time i speed)
+- ParticleEditor: mozda da se obrise? :))
+- TuberEditor:
+    - automatsko popunjavanje liste part-ova kada se izabere tuber;
+      recimo Tubers.<ime-tubera>.Part01 .. Part10
+- ExportOBJ da radi sa selektovanim
+
+
+
+UNKNOWN BUGS
+------------
+=============================================
